@@ -1,1 +1,20 @@
+import { PALAVRAS_RUINS } from './palavrasRuins.js';
 
+const input = document.getElementById('input-text');
+const btn = document.getElementById('btn-analyze');
+const output = document.getElementById('output-result');
+
+btn.addEventListener('click', () => {
+  const texto = input.value.trim();
+
+  if (!texto) {
+    output.textContent = 'Digite ou cole um texto!';
+    return;
+  }
+
+  const palavras = texto
+    .toLowerCase()
+    .split(/[^a-zá-úà-ü]+/i)
+    .filter(p => p.length > 2 && !PALAVRAS_RUINS.has(p));
+
+ 
