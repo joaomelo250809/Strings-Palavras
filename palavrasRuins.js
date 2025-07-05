@@ -6,4 +6,12 @@ export const PALAVRAS_RUINS = new Set([
   "você", "tinha", "foram", "essa", "num", "nem", "suas", "meu", "minha", "têm",
   "numa", "pelos", "elas", "havia", "seja", "qual", "será", "nós", "tenho", "lhe",
   "deles", "essas", "esses", "pelas", "este", "fosse", "dele", "vocês", "vos",
-  "lhes", "meus", 
+  "lhes", "meus", "minhas", "teu", "tua", "teus", "tuas", "nosso", "nossa",
+  "nossos", "nossas", "dela", "delas", "esta", "estes", "estas", "aquele",
+  "aquela", "aqueles", "aquelas", "isto", "aquilo", "estou", "estamos", "estive",
+  "esteve", "estivemos", "estiveram", "estava", "estávamos", "estavam", "e",
+  "ou", "onde", "aquilo", "embora", "apesar", "porque", "enquanto", "contudo",
+  "entretanto", "portanto", "além", "antes", "todavia", "inclusive", "diante",
+  "sobre", "quanto", "apenas", "desde", "uma vez", "segundo", "junto"
+]);
+
