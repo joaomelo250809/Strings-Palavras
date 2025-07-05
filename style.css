@@ -1,39 +1,84 @@
-import { PALAVRAS_RUINS } from './palavrasRuins.js';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
-const input = document.getElementById('input-text');
-const btn = document.getElementById('btn-analyze');
-const output = document.getElementById('output-result');
+:root {
+  --cor-principal: #6366f1;
+  --cor-fundo: #f8fafc;
+  --cor-box: #ffffff;
+  --cor-texto: #111827;
+  --cor-botao: #4f46e5;
+  --cor-hover: #4338ca;
+}
 
-btn.addEventListener('click', () => {
-  const texto = input.value.trim();
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
-  if (!texto) {
-    output.textContent = 'Digite ou cole um texto!';
-    return;
-  }
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
-  const palavras = texto
-    .toLowerCase()
-    .split(/[^a-zá-úà-ü]+/i)
-    .filter(p => p.length > 2 && !PALAVRAS_RUINS.has(p));
- if (palavras.length === 0) {
-    output.textContent = 'Nenhuma palavra relevante encontrada.';
-    return;
-  }
+.app-container {
+  background-color: var(--cor-box);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-  const frequencia = {};
-  for (const p of palavras) {
-    frequencia[p] = (frequencia[p] || 0) + 1;
-  }
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--cor-principal);
+}
 
-  const topPalavras = Object.entries(frequencia)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10);
+.descricao {
+  text-align: center;
+  color: #6b7280;
+}
 
-  output.innerHTML = topPalavras
-    .map(([palavra, contagem]) => `🟪 <strong>${palavra}</strong> apareceu ${contagem}x`)
-    .join('<br>');
-});
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 1rem;
+  border: 2px solid var(--cor-principal);
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: #f1f5f9;
+}
 
+button {
+  background-color: var(--cor-botao);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
- 
+button:hover {
+  background-color: var(--cor-hover);
+}
+
+#output-result {
+  background-color: #eef2ff;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  min-height: 80px;
+  white-space: pre-wrap;
+}
+
